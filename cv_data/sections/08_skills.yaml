@@ -1,0 +1,20 @@
+skills:
+  technical_skills:
+    cloud:
+      - AWS (EC2, S3, EKS, Lambda)
+      - Azure (AKS, Functions)
+      - GCP (GKE, Cloud Run)
+    infrastructure:
+      - Kubernetes (CKA)
+      - Terraform
+      - Ansible
+      - Docker
+    languages:
+      - Python
+      - Ruby
+      - Go
+      - C#
+  soft_skills:
+    - Technical Writing
+    - Public Speaking
+    - Team Leadership

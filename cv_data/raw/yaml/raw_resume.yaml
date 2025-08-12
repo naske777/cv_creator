@@ -1,0 +1,107 @@
+personal_info:
+  name: Luilver Garces
+  title: Senior DevOps Engineer & Cloud Architect
+  location: Miami, FL
+  contacts:
+    email: luilver@luilver.com
+    phone: "+1-786-555-0198"
+    github: "https://github.com/luilver"
+    linkedin: "https://linkedin.com/in/luilver"
+    website: "https://luilver.com"
+  languages:
+    - name: English
+      level: Native
+    - name: Spanish
+      level: Native
+    - name: Portuguese
+      level: Intermediate
+
+summary:
+  - "Cloud-native specialist with **10+ years** building scalable systems. Passionate about:"
+  - "Infrastructure as Code (Terraform, Ansible)"
+  - "Kubernetes ecosystems (CKA certified)"
+  - "CI/CD pipelines with GitHub Actions"
+  - "*Reducing cloud costs* through optimization"
+  - "\"Automate everything that moves – and some things that don't.\""
+  - "*— Personal motto*"
+
+experience:
+  - title: "Senior Cloud Engineer"
+    company: "TechInnovate Inc."
+    duration: "2020-Present"
+    location: "Remote"
+    achievements:
+      - "Led migration of 50+ microservices to **AWS EKS** (Kubernetes), reducing infra costs by 37%"
+      - "Implemented GitOps with ArgoCD; cut deployment time from 2h → 15min"
+      - "[Project Link](https://github.com/luilver/eks-migration-tool)"
+  
+  - title: "DevOps Specialist"
+    company: "CloudSolutions LLC"
+    duration: "2016-2020"
+    location: "Miami, FL"
+    achievements:
+      - "Built CI/CD pipelines handling 200+ daily deployments"
+      - "Containerized legacy apps using Docker; improved startup time by 60%"
+
+education:
+  - degree: "Master of Science in Computer Science"
+    institution: "Stanford University"
+    duration: "2014-2016"
+    location: "Palo Alto, CA"
+    details:
+      - "*Thesis*: 'Scalable Orchestration for Hybrid Clouds'"
+      - "Graduated with Honors (GPA: 3.8/4.0)"
+  
+  - degree: "Bachelor of Software Engineering"
+    institution: "University of Miami"
+    duration: "2010-2014"
+    location: "Miami, FL"
+    details:
+      - "Graduated with Honors (GPA: 3.8/4.0)"
+
+certifications:
+  - "Certified Kubernetes Administrator (CKA) -- 2022"
+  - "AWS Certified Solutions Architect -- Associate -- 2021"
+  - "Google Professional Cloud DevOps Engineer -- 2020"
+  - "HashiCorp Certified: Terraform Associate -- 2019"
+
+awards:
+  - year: "2023"
+    title: "*TechPioneer Award* by DevOps Institute for open-source contributions"
+  
+  - year: "2021"
+    title: "AWS Community Builder for Kubernetes projects ([Profile](https://aws.amazon.com/community/community-builders/luilver))"
+  
+  - year: "2019"
+    title: "\"Top 10 Cloud Innovators\" - CloudNative Journal"
+
+projects:
+  - name: "Open-Source Contributions"
+    details:
+      - "[**kube-optimizer**](https://github.com/luilver/kube-optimizer): Tool for auto-scaling Kubernetes clusters (1.2k starts)"
+      - "[**cv-pipeline**](https://github.com/luilver/cv-pipeline): This very CV system! (Python + GitHub Actions)"
+  
+  - name: "Personal Projects"
+    details:
+      - "[**MiamiHacks**](https://miamihacks.com): Community event platform (Ruby on Rails)"
+
+skills:
+  technical:
+    cloud:
+      - "AWS (EC2, S3, EKS, Lambda)"
+      - "Azure (AKS, Functions)"
+      - "GCP (GKE, Cloud Run)"
+    infrastructure:
+      - "Kubernetes (CKA)"
+      - "Terraform"
+      - "Ansible"
+      - "Docker"
+    languages:
+      - "Python"
+      - "Ruby"
+      - "Go"
+      - "C#"
+  soft:
+    - "Technical Writing"
+    - "Public Speaking"
+    - "Team Leadership"

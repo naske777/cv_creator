@@ -1,0 +1,19 @@
+personal_information:
+  name: Luilver Garces
+  title: Senior DevOps Engineer & Cloud Architect
+  location: Miami, FL
+  contacts:
+    email: luilver@luilver.com
+    phone: "+1-786-555-0198"
+    github: "https://github.com/luilver"
+    linkedin: "https://linkedin.com/in/luilver"
+    website: "https://luilver.com"  
+  languages:
+    - name: English
+      level: Native
+    - name: Spanish
+      level: Native
+    - name: Portuguese
+      level: Intermediate
+  social:
+    mastodon: "@luilver@mastodon.social"
