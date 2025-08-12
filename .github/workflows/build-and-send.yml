@@ -18,10 +18,13 @@ jobs:
           python-version: '3.12'
           cache: 'pip'
 
-      - name: Install TeX Live
+      - name: Install TeX Live (minimal)
         run: |
           sudo apt-get update
-          sudo apt-get install -y texlive-full
+          sudo apt-get install -y --no-install-recommends \
+            texlive-latex-base \
+            texlive-latex-recommended \
+            texlive-fonts-recommended
 
       - name: Install Python dependencies
         run: |
