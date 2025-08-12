@@ -1,0 +1,3 @@
+pypandoc==1.15
+pypandoc_binary==1.15
+PyYAML==6.0.2
