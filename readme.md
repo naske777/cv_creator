@@ -112,8 +112,28 @@ Lightweight rules in `text_to_tex.py`:
 
 ---
 
+
 ## Troubleshooting
 - `pdflatex is not installed or not in the PATH`: Install TeX Live or MiKTeX and ensure `pdflatex` is available.
 - Pandoc missing: Install Pandoc or let `pypandoc` download a local copy.
 - Compilation errors: Check special characters and unmatched LaTeX braces in your source sections.
+
+---
+
+## GitHub Actions: Build & Send PDF Automatically
+
+This project includes a GitHub Actions workflow (`.github/workflows/build-and-send.yml`) that automates the generation and sending of the PDF every time you push to the `main` branch.
+
+### What does the workflow do?
+
+1. **Installs dependencies**: Python, required packages, and TeX Live (for `pdflatex`).
+2. **Builds the PDF**: Runs `python src/main.py` and checks that `output/cv.pdf` was generated successfully.
+3. **Sends the PDF to an API**: Uses `curl` to POST the PDF to a URL defined by the `API_URL` environment variable (and optionally a `API_TOKEN`).
+
+### Required variables
+
+- `API_URL`: The API endpoint to which the PDF will be sent (must be set as a GitHub secret).
+- `API_TOKEN`: (optional) Bearer token for authentication.
+
+---
 
