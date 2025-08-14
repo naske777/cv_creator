@@ -77,6 +77,35 @@ You can find the workflow file at `.github/workflows/build-and-send.yml`. No man
 
 ---
 
+## Personal Information Formatting
+
+The `Personal Information` section in your CV is specially formatted for a clean, centered header at the top of your PDF. This formatting is handled by the `format_personal_info_section` function in `src/lib/format_tex.py`.
+
+**How it works:**
+- The formatter looks for a section titled `Personal Information` (from your YAML file `01_personal_info.yaml`).
+- It extracts the following fields:
+	- `name`
+	- `location`
+	- `contacts` (with subfields: `email`, `phone`, `github`)
+- These fields are rendered in a visually appealing, centered block at the top of the document.
+- Only these fields are supported in the header. If you want to include more personal details (like languages or hobbies), add them as separate sections in your CV.
+
+**Important:**
+- Do not remove or rename the `Personal Information` section in your YAML. If you do, the special formatting will not be applied and your header will not appear as intended.
+- For any additional information, create new sections (e.g., `Languages`, `Hobbies`) after the personal info section.
+
+**Example YAML (`cv_data/sections/01_personal_info.yaml`):**
+
+```yaml
+personal_information:
+	name: Luilver Garces
+	location: Miami, FL
+	contacts:
+		email: luilver@luilver.com
+		phone: "+1-786-555-0198"
+		github: "https://github.com/luilver"
+```
+
 ## Features
 
 - Mix and match input formats: `.yaml`, `.md`, `.txt`, and raw `.tex`
