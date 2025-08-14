@@ -2,16 +2,12 @@ import subprocess
 import tempfile
 import os
 
-def tex_to_pdf(tex_content):
+def tex_to_pdf(tex_path):
     output_dir = os.path.abspath("output")
     # Create the output folder if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)
         
     try:
-        # Create a temporary file to pass to pdflatex
-        with tempfile.NamedTemporaryFile(suffix='.tex', prefix='cv', delete=False) as tmp:
-            tmp_path = tmp.name
-            tmp.write(tex_content.encode('utf-8'))
         
         try:
             subprocess.run([
@@ -19,7 +15,7 @@ def tex_to_pdf(tex_content):
                 "-interaction=nonstopmode",
                 f"-output-directory={output_dir}",
                 "-jobname=cv",
-                tmp_path
+                tex_path
             ], capture_output=True, text=True, check=True)
 
             if os.path.exists("output/cv.pdf"):
@@ -29,12 +25,10 @@ def tex_to_pdf(tex_content):
                 print("❌ PDF file was not generated")
                 return False
         finally:
-            if os.path.exists(tmp_path):
-                os.unlink(tmp_path)
                 
             # Clean the output folder of non-PDF files
             for f in os.listdir(output_dir):
-                if not f.endswith(".pdf"):
+                if not (f.endswith(".pdf") or f.endswith(".tex")):
                     os.unlink(os.path.join(output_dir, f))
 
     except subprocess.CalledProcessError as e:

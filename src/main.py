@@ -7,7 +7,7 @@ from lib.yaml_to_tex import yaml_to_tex
 from lib.mkdocs_to_tex import markdown_to_tex  
 from lib.text_to_tex import text_to_tex
 from lib.latex_template import create_latex_document
-
+from lib.format_tex import format_tex
 
 def process_folder_content_to_tex(folder="cv_data/sections"):
     """
@@ -64,13 +64,20 @@ def process_folder_content_to_tex(folder="cv_data/sections"):
             print(f"  ❌ Error processing {filename}: {e}")
     
     final_latex = "\n".join(latex_content)
-    
+
     print("-" * 50)
     print(f"📊 Total sections processed: {len([f for f in all_files if os.path.splitext(f)[1] in ['.yaml', '.md', '.txt', '.tex']])}")
     
     complete_document = create_latex_document(final_latex)
 
-    tex_to_pdf(tex_content=complete_document)
+    complete_document = format_tex(complete_document)
+
+    # guarda el latex en local
+    tex_path = os.path.join("output", "cv.tex")
+    with open(tex_path, "w", encoding="utf-8") as f:
+        f.write(complete_document)
+        
+    tex_to_pdf(tex_path)
     return complete_document
 
 if __name__ == "__main__":
