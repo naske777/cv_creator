@@ -1,20 +1,40 @@
 skills:
   technical_skills:
-    cloud:
-      - AWS (EC2, S3, EKS, Lambda)
-      - Azure (AKS, Functions)
-      - GCP (GKE, Cloud Run)
-    infrastructure:
-      - Kubernetes (CKA)
-      - Terraform
-      - Ansible
-      - Docker
-    languages:
+    languages_frameworks:
+      - Java
       - Python
+      - Django
+      - .NET
       - Ruby
+      - Rails
       - Go
-      - C#
-  soft_skills:
-    - Technical Writing
-    - Public Speaking
-    - Team Leadership
+      - Javascript
+      - React
+      - Vue
+    deployment_cicd:
+      - Docker
+      - Kubernetes
+      - Jenkins
+      - Terraform
+      - Git
+    db_warehousing:
+      - BigQuery
+      - PostgreSQL
+      - MySQL
+      - ElasticSearch
+    messaging_events:
+      - Kafka
+      - RabbitMQ
+    orm_db_apis:
+      - SQLAlchemy
+      - ActiveModel
+      - EntityFramework
+    mobile:
+      - Xamarin.Forms
+      - React-Native
+    testing_suites:
+      - JUnit
+      - Pytest
+      - Rspec
+    cloud_services:
+      - GCP (BigQuery, Cloud Storage)

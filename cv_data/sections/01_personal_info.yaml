@@ -5,3 +5,13 @@ personal_information:
     email: luilver@luilver.com
     phone: "+1-786-555-0198"
     github: "https://github.com/luilver"
+  languages:
+    - Spanish - Native
+    - English - Fluent
+    - Italian - Fluent
+    - French - Average
+  hobbies:
+    - Pro Salsa Dancer
+    - Skydiver
+    - Reader
+    - Writer

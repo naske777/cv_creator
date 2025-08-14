@@ -1,6 +1,5 @@
 # Certifications
 
-Certified Kubernetes Administrator (CKA) -- 2022
-AWS Certified Solutions Architect -- Associate -- 2021
-Google Professional Cloud DevOps Engineer -- 2020
-HashiCorp Certified: Terraform Associate -- 2019
+Google Cloud Certified – Professional Architect - 2025
+Scrum Alliance Certified – Scrum Master - 2024
+Segurmatica – CySA Cyber Security Analist - 2020
