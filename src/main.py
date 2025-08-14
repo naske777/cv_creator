@@ -72,6 +72,8 @@ def process_folder_content_to_tex(folder="cv_data/sections"):
 
     complete_document = format_tex(complete_document)
 
+    os.makedirs("output", exist_ok=True)
+    
     # guarda el latex en local
     tex_path = os.path.join("output", "cv.tex")
     with open(tex_path, "w", encoding="utf-8") as f:
