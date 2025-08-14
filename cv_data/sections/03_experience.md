@@ -1,6 +1,6 @@
 # Experience
 
-## Senior Software Engineer • MX Technologies, Lehi, UT • May 2021 – Present
+## Senior Software Engineer, MX Technologies, Lehi, UT, May 2021 – Present
 Subject Matter Expert of the Data Enhancement team
 
 - Developed and implemented new features within the Data Platform Team to improve overall system performance and reliability.
