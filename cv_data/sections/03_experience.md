@@ -7,14 +7,14 @@ Subject Matter Expert of the Data Enhancement team
 - Migrated microservices from Ruby + Postgresql to Go + BigQuery, achieving 30% faster performance and reduced costs by 20%.
 - Used SQLAlchemy for seamless interactions with PostgreSQL and BigQuery via Python scripts with robust retry logic and connection pooling.
 
-## Software Engineer • PrintAI Innovations, Boulder, CO • Jun 2019 – Jun 2021
+## Software Engineer, PrintAI Innovations, Boulder, CO, Jun 2019 – Jun 2021
 Software Reliability Engineer
 
 - Scraping and simulating datasets for model training.
 - Managed Java (J#) microservices and facilitated deployment of new 3rd party integrations.
 - Collaborated with data scientists and analysts, delivering standardized datasets and reusable transformation libraries.
 
-## Full Stack .NET • PChomes Solutions, Austin, TX • Jan 2013 - Dec 2019
+## Full Stack .NET , PChomes Solutions, Austin, TX, Jan 2013 - Dec 2019
 Sole developer in charge of Ucar application
 
 - UcarOK: J# .NET core backend and VUEjs frontend.
