@@ -38,17 +38,15 @@ def process_folder_content_to_tex(folder="cv_data/sections"):
         try:
             if file_ext == '.yaml':
                 content = yaml_to_tex(file_path)
-                
-            elif file_ext == '.md':
+
+            elif file_ext == '.md' or file_ext == '.txt':
+                # Procesar .txt como si fuera markdown
                 content = markdown_to_tex(file_path)
-                
-            elif file_ext == '.txt':
-                content = text_to_tex(file_path)
-                
+
             elif file_ext == '.tex':
                 with open(file_path, 'r', encoding='utf-8') as f:
                     content = f.read()
-                    
+
             else:
                 print(f"  ⚠️  Unsupported file type: {file_ext}")
                 continue
