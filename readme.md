@@ -1,14 +1,16 @@
 
+
 # CV Creator
 
-Generate a professional LaTeX/PDF résumé from structured YAML, Markdown, and plain text files. This project lets you organize your CV content in modular sections, then compiles them into a single, polished PDF.
+Generate a professional LaTeX/PDF résumé from structured YAML, Markdown, and plain text files. Organize your CV content in modular sections, then compile them into a single, polished PDF with one command.
 
 ---
 
+
 ## Prerequisites
 
-- Python 3.8+
-- Install TeX Live and required LaTeX packages:
+- Python 3.8 or newer
+- TeX Live with required LaTeX packages:
 
 ```bash
 sudo apt-get update
@@ -23,17 +25,17 @@ Install Python dependencies from `requirements.txt`:
 
 ---
 
+
 ## Setup
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-
-# Install dependencies
 pip install -r requirements.txt
 ```
 
 ---
+
 
 ## Usage
 
@@ -45,54 +47,50 @@ pip install -r requirements.txt
 python src/main.py
 ```
 
-Output: `output/cv.pdf`
+The output will be generated at: `output/cv.pdf`
 
 ---
 
-## Using GitHub Actions
 
-You can automate the generation and delivery of your PDF CV using GitHub Actions. Follow these steps:
+## GitHub Actions Automation
 
-1. **Fork this repository** to your own GitHub account.
+You can automate PDF generation and delivery using GitHub Actions:
 
-2. **Prepare an API endpoint** that can receive a PDF file via HTTP POST. You will need the API URL and (optionally) a bearer token for authentication.
-
+1. **Fork this repository** to your GitHub account.
+2. **Prepare an API endpoint** that can receive a PDF file via HTTP POST (you'll need the API URL and optionally a bearer token).
 3. **Set up repository secrets**:
-	- Go to your forked repository on GitHub.
-	- Navigate to `Settings` > `Secrets and variables` > `Actions`.
-	- Add the following secrets:
-	  - `API_URL`: The endpoint where the PDF will be sent.
-	  - `API_TOKEN`: (optional) Bearer token for your API.
-
-4. **Edit the section files** in `cv_data/sections/` to update your CV content. You can add, remove, or modify any of the YAML, Markdown, or text files.
-
-5. **Commit and push your changes** to the `main` branch of your fork. The GitHub Actions workflow will run automatically whenever you push changes to the section files or trigger the workflow manually.
-
-6. **The workflow will:**
+	 - Go to your forked repo > Settings > Secrets and variables > Actions.
+	 - Add the following as **Repository secrets**:
+		 - `API_URL`: The endpoint to send the PDF.
+		 - `API_TOKEN`: (optional) Bearer token for your API.
+4. **Edit section files** in `cv_data/sections/` to update your CV.
+5. **Commit and push** to `main`. The workflow runs automatically on changes or manual trigger.
+6. The workflow will:
 	- Install all dependencies (Python, TeX Live, etc.)
 	- Build the PDF from your section files
 	- Send the generated `cv.pdf` to your API endpoint
 
-You can find the workflow file at `.github/workflows/build-and-send.yml`. No manual action is needed after setup—just edit your CV files and push!
+See `.github/workflows/build-and-send.yml` for details. No manual action is needed after setup—just edit your CV files and push!
 
 ---
 
+
 ## Personal Information Formatting
 
-The `Personal Information` section in your CV is specially formatted for a clean, centered header at the top of your PDF. This formatting is handled by the `format_personal_info_section` function in `src/lib/format_tex.py`.
+The `Personal Information` section is specially formatted for a clean, centered header at the top of your PDF. This is handled by the `format_personal_info_section` function in `src/lib/format_tex.py`.
 
 **How it works:**
 - The formatter looks for a section titled `Personal Information` (from your YAML file `01_personal_info.yaml`).
-- It extracts the following fields:
+- It extracts:
 	- `name`
 	- `location`
 	- `contacts` (with subfields: `email`, `phone`, `github`)
 - These fields are rendered in a visually appealing, centered block at the top of the document.
-- Only these fields are supported in the header. If you want to include more personal details (like languages or hobbies), add them as separate sections in your CV.
+- Only these fields are supported in the header. For more personal details (like languages or hobbies), add them as separate sections.
 
 **Important:**
-- Do not remove or rename the `Personal Information` section in your YAML. If you do, the special formatting will not be applied and your header will not appear as intended.
-- For any additional information, create new sections (e.g., `Languages`, `Hobbies`) after the personal info section.
+- Do not remove or rename the `Personal Information` section in your YAML. Otherwise, the special formatting will not be applied.
+- For additional information, create new sections (e.g., `Languages`, `Hobbies`) after the personal info section.
 
 **Example YAML (`cv_data/sections/01_personal_info.yaml`):**
 
@@ -106,6 +104,7 @@ personal_information:
 		github: "https://github.com/camitorres"
 ```
 
+
 ## Features
 
 - Mix and match input formats: `.yaml`, `.md`, `.txt`, and raw `.tex`
@@ -114,6 +113,7 @@ personal_information:
 - Customizable section order via filename prefix (e.g., `01_`, `02_`)
 
 ---
+
 
 ## Project Structure
 
@@ -135,7 +135,6 @@ cv_creator/
 │   └── lib/
 │       ├── latex_template.py    # LaTeX preamble and document wrapper
 │       ├── mkdocs_to_tex.py     # Markdown → LaTeX via pypandoc
-│       ├── text_to_tex.py       # Text with light markdown → LaTeX
 │       ├── yaml_to_tex.py       # YAML → LaTeX sections/lists
 │       ├── tex_to_pdf.py        # pdflatex runner → PDF
 │       └── format_tex.py        # Post-processing and formatting
@@ -144,48 +143,85 @@ cv_creator/
 
 ---
 
+
+
 ## Supported Input Formats
 
 ### YAML (`.yaml`)
 - Top-level keys become sections; nested keys become subsections.
 - Simple key–value pairs render as bold labels with line breaks.
 - Lists render as `itemize` lists; list items that are dicts join their fields inline.
-- Special LaTeX characters are safely escaped.
+- Special LaTeX characters are safely escaped (see `clean_latex_content` in `src/lib/yaml_to_tex.py`).
 
 ### Markdown (`.md`)
-- Converted with Pandoc via `pypandoc`.
+- Converted with Pandoc via `pypandoc` (see `src/lib/mkdocs_to_tex.py`).
 - Headings, lists, emphasis, links, and more are supported.
 
 ### Text (`.txt`)
+- Treated as Markdown and converted via Pandoc (see `src/lib/mkdocs_to_tex.py`).
 - Headings: `#`, `##`, `###` → `\section`, `\subsection`, `\subsubsection`
 - Isolated lines (surrounded by blanks) → `\section`
 - `- ` prefix → bullet list
 - `Label: Value` → bold label + forced line break
 - Inline `**bold**` and `*italic*`
-- URLs wrapped as `\url{...}`
+- URLs are automatically hyperlinked (see `url_replacer` in `src/lib/format_tex.py`).
 
 ### LaTeX (`.tex`)
 - Copied verbatim into the final document (for custom formatting)
 
 ---
 
+
+
 ## How It Works
 
 - `src/main.py`: Scans `cv_data/sections`, converts each file by extension, concatenates LaTeX, wraps with a preamble, and compiles to PDF.
 - `lib/latex_template.py`: Provides the LaTeX preamble and document wrapper.
-- `lib/mkdocs_to_tex.py`: Converts Markdown to LaTeX using Pandoc.
-- `lib/text_to_tex.py`: Escapes LaTeX, handles lists, headings, inline styles, and URLs.
-- `lib/yaml_to_tex.py`: Recursively maps YAML to sections, subsections, and lists.
+- `lib/mkdocs_to_tex.py`: Converts Markdown and text files to LaTeX using Pandoc.
+- `lib/yaml_to_tex.py`: Recursively maps YAML to LaTeX sections, subsections, and lists, with LaTeX-safe escaping.
 - `lib/tex_to_pdf.py`: Runs `pdflatex` to generate the PDF and cleans up auxiliary files.
-- `lib/format_tex.py`: Post-processes the LaTeX for formatting and personal info layout.
+- `lib/format_tex.py`: Post-processes the LaTeX for formatting, including URL hyperlinking and personal info layout.
 
 ---
+
 
 ## Tips
 
 - Control section order by filename prefix (e.g., `01_`, `02_`, ...)
 - You can add a custom `.tex` section for advanced formatting
 - Keep line lengths reasonable in `.txt` for best heading detection
+
+---
+
+## Troubleshooting
+
+### PDF is not generated or `output/cv.pdf` is missing
+- Make sure you have TeX Live and all required LaTeX packages installed (see Prerequisites).
+- Check for errors in the terminal output when running `python src/main.py`.
+- If you see `pdflatex is not installed or not in the PATH`, install TeX Live as described above.
+
+### "Error during LaTeX compilation" or build fails
+- Review the error message for missing LaTeX packages or syntax errors in your section files.
+- Ensure your YAML, Markdown, and text files are valid and do not contain unescaped special LaTeX characters.
+- Try building with only a minimal set of sections to isolate the problematic file.
+
+### Unicode or encoding errors
+- Ensure all your section files are saved as UTF-8.
+- Avoid using unsupported characters in your YAML, Markdown, or text files.
+
+### Pandoc or pypandoc errors
+- Make sure `pypandoc` and its dependencies are installed (`pip install -r requirements.txt`).
+- If you see errors about missing `pandoc`, try installing it manually or ensure `pypandoc_binary` is installed.
+
+### Custom formatting is not applied to Personal Information
+- The YAML section must be named exactly `personal_information`.
+- Only the fields `name`, `location`, and `contacts` (with subfields) are supported in the header.
+- For additional info, add new sections after the personal info section.
+
+### Still having issues?
+- Run with only one or two section files to debug.
+- Check the output in `output/cv.tex` for LaTeX errors.
+- Open an issue or ask for help with your error message and a sample of your input files.
 
 
 
