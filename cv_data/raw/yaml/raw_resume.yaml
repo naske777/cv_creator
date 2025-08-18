@@ -1,0 +1,104 @@
+personal_info:
+  name: Camila Torres
+  title: Senior DevOps Engineer & Cloud Architect
+  location: Miami, FL
+  contacts:
+  email: camila.torres@email.com
+    phone: "+1-786-555-0198"
+  github: "https://github.com/camitorres"
+  linkedin: "https://linkedin.com/in/camitorres"
+  website: "https://camitorres.com"
+  languages:
+    - name: English
+      level: Native
+    - name: Spanish
+      level: Native
+    - name: Portuguese
+      level: Intermediate
+
+summary:
+  - "Cloud-native specialist with **10+ years** building scalable systems. Passionate about:"
+  - "Infrastructure as Code (Terraform, Ansible)"
+  - "Kubernetes ecosystems (CKA certified)"
+  - "CI/CD pipelines with GitHub Actions"
+  - "*Reducing cloud costs* through optimization"
+  - "\"Automate everything that moves – and some things that don't.\""
+  - "*— Personal motto*"
+
+experience:
+  - title: "Senior Cloud Engineer"
+    company: "TechInnovate Inc."
+    duration: "2020-Present"
+    location: "Remote"
+    achievements:
+      - "Led migration of 50+ microservices to **AWS EKS** (Kubernetes), reducing infra costs by 37%"
+      - "Implemented GitOps with ArgoCD; cut deployment time from 2h → 15min"
+  - "[Project Link](https://github.com/camitorres/nlp-insights)"
+  
+  - title: "DevOps Specialist"
+    company: "CloudSolutions LLC"
+    duration: "2016-2020"
+    location: "Miami, FL"
+    achievements:
+      - "Built CI/CD pipelines handling 200+ daily deployments"
+      - "Containerized legacy apps using Docker; improved startup time by 60%"
+
+personal_information:
+  name: Camila Torres
+  location: San Francisco, CA
+  contacts:
+    email: camila.torres@email.com
+    phone: "+1-415-555-1234"
+    github: "https://github.com/camitorres"
+summary:
+  text: |
+    Innovative Data Scientist with 7+ years of experience in machine learning and AI.
+    Expert in building scalable analytics solutions and leading cross-functional teams.
+experience:
+  - title: Lead Data Scientist
+    company: InsightAI
+    location: San Francisco, CA
+    period: Jan 2022 – Present
+    description: |
+      Team lead for predictive analytics and NLP projects
+      - Designed and deployed deep learning models for customer behavior prediction, increasing retention by 18%.
+      - Led a team of 5 data scientists in developing a real-time recommendation engine using TensorFlow and PyTorch.
+      - Implemented MLOps pipelines with Docker and Kubernetes for scalable model deployment.
+  - title: Data Analyst
+    company: GreenTech Solutions
+    location: Seattle, WA
+    period: Mar 2018 – Dec 2021
+    description: |
+      Specialist in environmental data analysis
+      - Automated data collection and cleaning processes, reducing manual work by 40%.
+      - Built dashboards in Tableau and Power BI for real-time monitoring of sustainability metrics.
+      - Collaborated with engineering teams to integrate analytics into IoT devices.
+  - title: Junior Data Scientist
+    company: HealthSync
+    location: Austin, TX
+    period: Jul 2016 – Feb 2018
+    description: |
+      Worked on healthcare data mining and reporting
+      - Developed Python scripts for ETL and data validation.
+      - Assisted in building machine learning models for patient risk assessment.
+      - Presented findings to stakeholders, improving data-driven decision making.
+skills:
+  technical:
+    cloud:
+      - "AWS (EC2, S3, EKS, Lambda)"
+      - "Azure (AKS, Functions)"
+      - "GCP (GKE, Cloud Run)"
+    infrastructure:
+      - "Kubernetes (CKA)"
+      - "Terraform"
+      - "Ansible"
+      - "Docker"
+    languages:
+      - "Python"
+      - "Ruby"
+      - "Go"
+      - "C#"
+  soft:
+    - "Technical Writing"
+    - "Public Speaking"
+    - "Team Leadership"

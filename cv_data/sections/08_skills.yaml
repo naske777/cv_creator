@@ -1,0 +1,31 @@
+skills:
+  technical_skills:
+    languages_frameworks:
+      - Python
+      - R
+      - Scala
+      - TensorFlow
+      - PyTorch
+      - FastAPI
+      - React
+    deployment_cicd:
+      - Docker
+      - GitHub Actions
+      - CircleCI
+    db_warehousing:
+      - Snowflake
+      - MongoDB
+      - SQLite
+    messaging_events:
+      - AWS SNS
+      - Google Pub/Sub
+    orm_db_apis:
+      - pandas
+      - SQLAlchemy
+    mobile:
+      - Flutter
+    testing_suites:
+      - unittest
+      - pytest
+    cloud_services:
+      - AWS (S3, SageMaker)

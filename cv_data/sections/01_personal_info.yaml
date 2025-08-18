@@ -1,0 +1,7 @@
+personal_information:
+  name: Camila Torres
+  location: San Francisco, CA
+  contacts:
+    email: camila.torres@email.com
+    phone: "+1-415-555-1234"
+    github: "https://github.com/camitorres"

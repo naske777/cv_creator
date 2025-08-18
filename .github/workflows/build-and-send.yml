@@ -1,0 +1,71 @@
+name: Build CV PDF and send to API
+
+on:
+  push:
+    branches: [ main]
+  workflow_dispatch:
+
+jobs:
+  build-and-send:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install TeX Live (minimal)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            texlive-latex-base \
+            texlive-latex-recommended \
+            texlive-latex-extra \
+            texlive-fonts-recommended
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build PDF
+        run: |
+          python src/main.py
+          test -f output/cv.pdf
+
+      - name: Send PDF to API via curl
+        env:
+          API_URL: ${{ secrets.API_URL }}
+          API_TOKEN: ${{ secrets.API_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "${API_URL:-}" ]; then
+            echo "API_URL secret is required" >&2
+            exit 1
+          fi
+
+          if [ ! -f output/cv.pdf ]; then
+            echo "File not found: output/cv.pdf" >&2
+            exit 1
+          fi
+
+          # Build curl command
+          declare -a cmd=(
+            curl -fSL -X POST "$API_URL"
+            -H "Accept: application/json"
+            -F "file=@output/cv.pdf;type=application/pdf"
+          )
+
+          # Bearer token
+          if [ -n "${API_TOKEN:-}" ]; then
+            cmd+=( -H "Authorization: Bearer $API_TOKEN" )
+          fi
+
+          echo "Sending PDF to API: $API_URL"
+          # Execute
+          "${cmd[@]}"

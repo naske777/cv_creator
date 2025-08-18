@@ -1,0 +1,5 @@
+# Certifications
+
+AWS Certified Machine Learning – Specialty - 2024
+Microsoft Certified: Azure Data Scientist Associate - 2023
+Coursera – Deep Learning Specialization - 2022
