@@ -5,7 +5,6 @@ import glob
 from lib.tex_to_pdf import tex_to_pdf
 from lib.yaml_to_tex import yaml_to_tex
 from lib.mkdocs_to_tex import markdown_to_tex  
-from lib.text_to_tex import text_to_tex
 from lib.latex_template import create_latex_document
 from lib.format_tex import format_tex
 
