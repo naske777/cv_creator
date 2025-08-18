@@ -156,7 +156,8 @@ def text_to_tex(text_file_path):
             escaped = escape_latex(tmp)
             for token, repl in placeholders:
                 escaped = escaped.replace(token, repl)
-            latex.append(escaped)
+            # Añadir salto de línea LaTeX al final de cada línea normal
+            latex.append(escaped + r"\\")
             i += 1
 
         close_list()
